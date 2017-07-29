@@ -1,0 +1,3 @@
+rootProject.name = 'mogen'
+
+include ':app'
