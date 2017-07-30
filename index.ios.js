@@ -10,7 +10,7 @@ import { Provider } from 'react-redux'
 import { StatusBar } from 'react-native'
 import DetailNavigation from 'src/componenets/Detail/views/DetailNavigation'
 const store = configureStore();
-export default class mogen extends Component {
+export default class GenwisApp extends Component {
   render() {
     return (
         <Provider store={store}>
@@ -23,4 +23,4 @@ export default class mogen extends Component {
   }
 }
 
-AppRegistry.registerComponent('mogen', () => mogen);
+AppRegistry.registerComponent('GenwisApp', () => GenwisApp);

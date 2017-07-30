@@ -11,7 +11,7 @@ import { Provider } from 'react-redux'
 import { StatusBar } from 'react-native'
 import HomeNavigation from './src/componenets/Home/views/HomeNavigation'
 const store = configureStore();
-export default class mogen extends Component {
+export default class GenwisApp extends Component {
     render() {
         return (
             <Provider store={store}>
@@ -26,4 +26,4 @@ const container1 = {
     backgroundColor: "#ffffff",
     flex: 1
 };
-AppRegistry.registerComponent('mogen', () => mogen);
+AppRegistry.registerComponent('GenwisApp', () => GenwisApp);

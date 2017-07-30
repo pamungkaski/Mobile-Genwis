@@ -1,4 +1,4 @@
-package com.mogen;
+package com.genwisapp;
 
 import android.app.Application;
 
