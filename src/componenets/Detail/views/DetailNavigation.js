@@ -21,6 +21,9 @@ const mapStateToProps = (state) => {
 };
 
 class DetailNavigation extends React.Component {
+    static navigationOptions = {
+        header: null,
+    }
     render(){
         const { navigationState, dispatch } = this.props;
         return (

@@ -3,13 +3,13 @@
  */
 'use strict'
 import React, { Component } from 'react'
-import { View, Text, TextInput} from 'react-native'
+import { View, Text, TextInput, Button,StatusBar} from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchItineray } from '../../../actions/actions'
 
 import ListScreenForm from "./ListScreenForm";
-
+import ListScreenLoading from "./ListScreenLoading"
 function mapStateToProps(state) {
     const { selectedDetail, itineraryByDetail } = state;
     const {
@@ -36,26 +36,34 @@ class ListScreen extends Component{
     }
 
     render(){
-        const { isFetching, List } = this.props;
+        const { isFetching, List, selectedDetail, navigation } = this.props;
         return(
+
             <View style={container1}>
-            {
-                isFetching ? <Text style={loading}>LOADING!</Text> : <ListScreenForm List={List}/>
-            }
+                <StatusBar backgroundColor="#2ecc71"/>
+                {
+                    isFetching ?  <ListScreenLoading/>: <ListScreenForm List={List} Detail={selectedDetail}/>
+                }
+                {
+                    isFetching ? false :
+                        <View style={button}>
+                            <Button
+                                color="#2ecc71" title="BOOK NOW" onPress={() => navigation.navigate('BookNavigation')}
+                            />
+                        </View>
+                }
             </View>
         )
     }
+}
+const button = {
+    padding: 10
+}
+const container2={
+    alignItems: "center"
 }
 const container1 = {
     backgroundColor: "#ffffff",
     flex: 1
 };
-const loading = {
-    fontFamily: "Ubuntu",
-    fontSize: 39.3,
-    fontWeight: "bold",
-    letterSpacing: 0.2,
-    textAlign: "center",
-    color: "#2ecc71"
-}
 export default connect(mapStateToProps)(ListScreen)

@@ -9,15 +9,14 @@ import configureStore from './src/store/configureStore'
 import { Provider } from 'react-redux'
 
 import { StatusBar } from 'react-native'
-import DetailNavigation from './src/componenets/Detail/views/DetailNavigation'
+import HomeNavigation from './src/componenets/Home/views/HomeNavigation'
 const store = configureStore();
 export default class mogen extends Component {
     render() {
         return (
             <Provider store={store}>
               <View style={container1}>
-                  <StatusBar backgroundColor="#2eec71"/>
-                  <DetailNavigation/>
+                  <HomeNavigation/>
               </View>
             </Provider>
         );

@@ -1,41 +1,41 @@
 /**
- * Created by iampamungkas on 7/28/17.
+ * Created by iampamungkas on 7/30/17.
  */
-'use strict'
+'use strict';
 
 // React
 import React from 'react'
 
 // Navigation
 import { addNavigationHelpers } from 'react-navigation'
-import { NavigatorHome } from '../navigationConf'
+import { NavigatorBook } from '../navigationConf'
 
-//Redux
+// Redux
 import { connect } from 'react-redux'
+
 
 const mapStateToProps = (state) => {
     return {
-        navigationState: state.Home,
+        navigationState: state.Book,
     }
-}
+};
 
-class HomeNavigation extends React.Component {
+class BookNavigation extends React.Component {
     static navigationOptions = {
         header: null,
     };
     render(){
-        const { dispatch, navigationState } = this.props
+        const { navigationState, dispatch } = this.props;
         return (
-            <NavigatorHome
+            <NavigatorBook
                 navigation={
                     addNavigationHelpers({
                         dispatch: dispatch,
-                        state: navigationState,
+                        state: navigationState
                     })
                 }
             />
         )
     }
 }
-
-export default connect(mapStateToProps)(HomeNavigation)
+export default connect(mapStateToProps)(BookNavigation)
